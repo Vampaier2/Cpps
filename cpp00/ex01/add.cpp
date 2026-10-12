@@ -1,15 +1,42 @@
-#include "phoneBook.hpp"
+#include "PhoneBook.hpp"
+
+int	checkforonlyspaces(std::string s)
+{
+	int i = 0;
+
+	while (s[i])
+    {
+		if(s[i] != ' ')
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
+}
 
 int checkinvalidphonens(std::string s)
 {
-	int i = 0;
-	while(s[i])
-	{
-		if(s[i] < '0' || s[i] > '9')
-			return (1);
-		i++;
-	}
-	return (0);
+	 int i = 0;
+
+    while (s[i])
+    {
+        if (s[i] == '+' && i == 0)
+        {
+            i++;
+            continue ;
+        }
+		if (s[i] == ' ' && i == 0)
+        {
+           return (1);
+        }
+        if ((s[i] < '0' || s[i] > '9') && s[i] != ' ')
+		{
+            return (1);
+		}
+        i++;
+    }
+    return (0);
 }
 
 int get_phone(std::string msg, std::string &input)
@@ -21,7 +48,7 @@ int get_phone(std::string msg, std::string &input)
 		{
 			return (1); // ctl+D check
 		}
-		if (!input.empty() && !checkinvalidphonens(input))
+		if (!input.empty() && !checkinvalidphonens(input) && !checkforonlyspaces(input))
 		{
 			return (0);
 		}
@@ -47,9 +74,13 @@ int get_input(std::string msg, std::string &input)
 	{
 		std::cout << msg;
 		if (!std::getline(std::cin, input))
+		{
 			return (1); // ctl+D check
-		if (!input.empty() && !checkforinvalidstr(input))
+		}
+		if (!input.empty() && !checkforinvalidstr(input) && !checkforonlyspaces(input))
+		{
 			return (0);
+		}
 	}
 	return (0);
 }

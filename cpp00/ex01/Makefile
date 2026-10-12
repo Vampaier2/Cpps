@@ -3,7 +3,7 @@ NAME = PhoneBook
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = phoneBook.cpp add.cpp search.cpp contact.cpp
+SRC = main.cpp PhoneBook.cpp Contact.cpp add.cpp search.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
@@ -11,6 +11,8 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
 	@echo "Compiled $(NAME)"
+
+$(OBJ): PhoneBook.hpp Contact.hpp
 
 %.o: %.cpp
 	$(CPP) $(CPPFLAGS) -c $< -o $@

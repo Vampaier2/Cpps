@@ -1,4 +1,4 @@
-#include "phoneBook.hpp"
+#include "PhoneBook.hpp"
 
 void print_table_header(void)
 {
@@ -32,7 +32,7 @@ void searchindexentry(const PhoneBook &phoneBook)
 {
 	 std::string reply;
 
-    std::cout << "Enter contact index: ";
+    std::cout << "Enter contact index(or anything else for main menu): ";
     if (!std::getline(std::cin, reply))
 		return;
     if (reply.length() != 1 || reply[0] < '1' || reply[0] > '8')
@@ -43,7 +43,7 @@ void searchindexentry(const PhoneBook &phoneBook)
 
     int index = reply[0] - '1';
 
-    if (index >= phoneBook.total_contacts)
+    if (index >= phoneBook.getTotalContacts())
     {
         std::cout << "No contact with that index!!" << std::endl;
         return;
@@ -55,14 +55,14 @@ void searchindexentry(const PhoneBook &phoneBook)
     std::cout << "Last Name -->" << contact.getLastname() << std::endl;
     std::cout << "Nickname -->" << contact.getNickname() << std::endl;
     std::cout << "Phonenumber -->" << contact.getPhonenumber() << std::endl;
-    std::cout << "getDarksecret -->" << contact.getDarksecret() << std::endl;
+    std::cout << "Darkest secret -->" << contact.getDarksecret() << std::endl;
 }
 
 void show_search_table(const PhoneBook &phoneBook)
 {
 	int i = 0;
 	print_table_header();
-	while(i < phoneBook.total_contacts)
+	while(i < phoneBook.getTotalContacts())
 	{
 		Contact contact = phoneBook.getContact(i);
 
