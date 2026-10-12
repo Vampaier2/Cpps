@@ -31,8 +31,11 @@ std::string	ft_toupper_str(std::string s)
 
 
 //------------------------------------
-int main(void)
+int main(int argc, char **argv)
 {
+	(void)argv;
+	if(argc != 1)
+		return (1);
 	PhoneBook phoneBook;
 	std::string command;
 	//int	contacts = 0;
@@ -40,12 +43,16 @@ int main(void)
 	while (1)
 	{
 		std::cout << "PhoneBook" << std::endl << "->ADD\n->SEARCH\n->EXIT" << std::endl;
-		std::getline(std::cin, command);
-		//command = ft_toupper_str(command);
-		
+		if (!std::getline(std::cin, command))
+		{
+			break;
+		}
 		if (command == "ADD")
 		{
-			phoneBook.addContact();
+			if(phoneBook.addContact())
+			{
+				break;
+			}
 			stopsign();
 		}
 		if (command == "SEARCH")
@@ -57,12 +64,7 @@ int main(void)
 		{
 			break;
 		}
-		/* if (command == "FILL")
-		{
-			phoneBook.fill_phonebook();
-		} */
 
-		//system("clear")
 		std::cout << "\033[2J\033[H"; // optional
 	}
 	//std::cout << std::endl;
