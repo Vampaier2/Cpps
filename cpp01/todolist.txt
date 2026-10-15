@@ -1,0 +1,8 @@
+00 and 01
+    needs message when created zombies
+01
+    shouldn't accept negative numbers
+03
+    needs message when created humans
+04(maybe)
+    if no other parameter warning
