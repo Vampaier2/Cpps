@@ -2,7 +2,6 @@
 #define ZOMBIE_H
 
 #include <string>
-#include <iomanip>
 #include <iostream>
 
 class Zombie
@@ -17,7 +16,6 @@ class Zombie
 		~Zombie();
 };
 
-Zombie*	newZombie( std::string name );
 Zombie* zombieHorde( int N, std::string name );
 
 #endif

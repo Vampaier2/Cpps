@@ -5,11 +5,6 @@ Zombie::Zombie(std::string name)
     this->name = name;
 }
 
-Zombie::Zombie(std::string name)
-{
-    this->name = name;
-}
-
 Zombie::~Zombie()
 {
     std::cout << name << " was destroyed" << std::endl;

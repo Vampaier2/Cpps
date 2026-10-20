@@ -1,12 +1,12 @@
 #include "Zombie.hpp"
 
-/* void randomChump( std::string name )
-{
-    Zombie aux;
+/* 
+basically what its doing is:
+    1º->Zombie aux;
 
-    aux = Zombie(name);
+    2º->aux = Zombie(name);
 
-    aux = announce();
+    3º->aux = announce();
 } */
 
 void randomChump(std::string name)

@@ -8,7 +8,7 @@ int main()
     fruta->announce();
     delete fruta;
 
-    randomChump("Maçã"); //dies/delete automaticaly after exits functions
+    randomChump("Pera"); //dies/delete automaticaly after exits functions
 
     return (0);
 }
