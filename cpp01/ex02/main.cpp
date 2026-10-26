@@ -19,9 +19,9 @@ int main()
 
 	//• The memory address held by stringREF.
 	std::cout << &stringREF << std::endl;
+
 	//And then:
 	
-
 	//• The value of the string variable.
 	std::cout << s << std::endl;
 	//• The value pointed to by stringPTR.
